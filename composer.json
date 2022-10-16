@@ -28,7 +28,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files":[
-            "app/Helpers/HelpAgent.php" 
+            "app/Helpers/HelpAgent.php",
+            "app/Helpers/HelpTerbilang.php"  
         ]
     },
     "autoload-dev": {

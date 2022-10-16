@@ -14,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
     //-----------------------------------------------------------  
         Route::resource('Dashboard', DashboardController::class); 
- 
+        
+        Route::get('Kwitansi/print/{id}', 'KwitansiController@print')
+            ->name('Kwitansi.print');
+        Route::resource('Print', PrintController::class); 
+
+        Route::get('Kwitansi/deletedata/{id}', 'KwitansiController@deletedata')
+            ->name('Kwitansi.deletedata');
+
+        Route::resource('Kwitansi', KwitansiController::class); 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('Kwitansi');
 });
 
 //route resource
