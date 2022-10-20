@@ -25,9 +25,11 @@
                             <tr>               
                                 <x-html.th-first />
                                 <x-html.th-content title="Tanggal" /> 
+                                <x-html.th-content title="Perusahaan" /> 
                                 <x-html.th-content title="Nomor" /> 
                                 <x-html.th-content title="Penerima" /> 
                                 <x-html.th-content title="Nominal" /> 
+                                <x-html.th-content title="Stamp" /> 
                                 <x-html.th-content title="Keterangan" /> 
                                 <x-html.th-content title="Action" />
                             </tr>
@@ -41,6 +43,12 @@
                                     </td>
                                     <td class="text-center">  
                                         {{ $row->tanggal }}
+                                    </td> 
+                                    <td class="text-center">  
+                                        {{ $row->perusahaan }}
+                                        <br/>
+                                        {{ $row->alamat }},
+                                        {{ $row->kota }}.
                                     </td> 
                                     <td class="text-center">  
                                         {{ $row->nomor_kwitansi }}

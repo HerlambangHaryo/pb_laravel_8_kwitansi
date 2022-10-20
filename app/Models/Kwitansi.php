@@ -14,9 +14,13 @@ class Kwitansi extends Model
     protected $softDelete = true;
     
     protected $fillable = [
+        'perusahaan',
+        'alamat',
+        'kota',
         'penerima',
         'nomor_kwitansi',
         'tanggal',
+        'stamp',
         'keterangan',
         'nominal',
     ];

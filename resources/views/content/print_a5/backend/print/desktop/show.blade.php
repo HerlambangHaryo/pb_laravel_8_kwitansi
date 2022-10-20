@@ -15,10 +15,10 @@
             <div style="border-style: dashed; border-width: thin; height:400px; padding:15px;">
                 <div>
                     <div style="font-size:20px; font-weight: bold;">
-                        TUNAS BERKAT INDO PRATAMA
+                        {{ $model->perusahaan }}
                     </div>
                     <span style="text-decoration: underline;">
-                        Tanjung Perak, Surabaya
+                        {{ $model->alamat }}, {{ $model->kota }}
                     </span> 
                 </div> 
                 
@@ -86,11 +86,20 @@
                     </div>
                     <div  style="width:50%; float: right; text-align:center;">
                         Surabaya, {{$model->tanggal}}
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        @if(!is_null($model->stamp)) 
+                            <br/>
+                            <img 
+                                src="{{ asset('/public/storage/stamp/').'/'.$model->stamp }}" 
+                                class="rounded mx-auto d-block" 
+                                width="100" >
+                            <br/>
+                        @else
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        @endif
                         <span style="text-decoration: underline;">
                             Pimpinan
 

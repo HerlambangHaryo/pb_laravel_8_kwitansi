@@ -19,11 +19,49 @@
             </div>
             <div class="card-body">    
                  
-                <form action="{{ route($content.'.store') }}" 
-                    method="POST">
+                <form class="col-12" action="{{ route($content.'.store' ) }}" 
+                    method="POST" 
+                    enctype="multipart/form-data"> 
                     @csrf   
 
                     <div> 
+                        <div class="form-group row mb-3">
+                            <label class="col-2 col-form-label">
+                                Perusahaan
+                            </label>
+                            <div class="col-6">
+                                <input 
+                                    type="text" 
+                                    class="form-control form-control-lg"  
+                                    name="perusahaan"
+                                >
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-3">
+                            <label class="col-2 col-form-label">
+                                Alamat
+                            </label>
+                            <div class="col-6">
+                                <input 
+                                    type="text" 
+                                    class="form-control form-control-lg"  
+                                    name="alamat"
+                                >
+                            </div>
+                        </div> 
+                        <div class="form-group row mb-3">
+                            <label class="col-2 col-form-label">
+                                Kota
+                            </label>
+                            <div class="col-6">
+                                <input 
+                                    type="text" 
+                                    class="form-control form-control-lg"  
+                                    name="kota"
+                                >
+                            </div>
+                        </div> 
+
                         <div class="form-group row mb-3">
                             <label class="col-2 col-form-label">
                                 Nomor
@@ -73,6 +111,18 @@
                                     type="date" 
                                     class="form-control form-control-lg"  
                                     name="tanggal"
+                                >
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-2 col-form-label">
+                                Stamp
+                            </label>
+                            <div class="col-2">
+                                <input 
+                                    type="file" 
+                                    class="form-control form-control-lg"  
+                                    name="stamp"
                                 >
                             </div>
                         </div>

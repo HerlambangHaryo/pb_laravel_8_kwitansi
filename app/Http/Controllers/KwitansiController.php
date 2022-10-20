@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Jenssegers\Agent\Agent;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Kwitansi; 
 
@@ -108,20 +109,56 @@ class KwitansiController extends Controller
 
         // ----------------------------------------------------------- Action 
             $this->validate($request, [ 
+                'perusahaan'        => 'required', 
+                'alamat'            => 'required', 
+                'kota'              => 'required', 
+
                 'nomor_kwitansi'    => 'required',  
                 'penerima'          => 'required',  
                 'nominal'           => 'required',  
                 'tanggal'           => 'required',  
+                 
                 'keterangan'        => 'required',  
             ]);
   
-            $data = Kwitansi::create([ 
-                'nomor_kwitansi'    => $request->nomor_kwitansi,  
-                'penerima'          => $request->penerima,  
-                'nominal'           => $request->nominal,  
-                'tanggal'           => $request->tanggal,  
-                'keterangan'        => $request->keterangan,  
-            ]); 
+            if($request->stamp != '')
+            {
+                //upload image
+                $image = $request->file('stamp');
+                $image->storeAs('public/stamp', $image->hashName());
+
+                $data = Kwitansi::create([ 
+                    'perusahaan'        => $request->perusahaan,  
+                    'alamat'            => $request->alamat,  
+                    'kota'              => $request->kota,  
+
+                    'nomor_kwitansi'    => $request->nomor_kwitansi,  
+                    'penerima'          => $request->penerima,  
+                    'nominal'           => $request->nominal,  
+                    'tanggal'           => $request->tanggal,  
+                    'keterangan'        => $request->keterangan,  
+
+                    'stamp'             => $image->hashName(),
+                ]); 
+            } 
+            else 
+            {
+
+                $data = Kwitansi::create([ 
+                    'perusahaan'        => $request->perusahaan,  
+                    'alamat'            => $request->alamat,  
+                    'kota'              => $request->kota,  
+
+                    'nomor_kwitansi'    => $request->nomor_kwitansi,  
+                    'penerima'          => $request->penerima,  
+                    'nominal'           => $request->nominal,  
+                    'tanggal'           => $request->tanggal,  
+                    'keterangan'        => $request->keterangan,  
+
+                ]); 
+
+            }
+
 
         // ----------------------------------------------------------- Send
             if($data)
@@ -198,13 +235,37 @@ class KwitansiController extends Controller
  
             $model = Kwitansi::findOrFail($Kwitansi->id);
              
-            $model->update([
-                'nomor_kwitansi'    => $request->nomor_kwitansi,  
-                'penerima'          => $request->penerima,  
-                'nominal'           => $request->nominal,  
-                'tanggal'           => $request->tanggal,  
-                'keterangan'        => $request->keterangan,  
-            ]); 
+            if($request->stamp != '')
+            {
+                $image = $request->file('stamp');
+                $image->storeAs('public/stamp', $image->hashName());
+
+                $model->update([
+                    'perusahaan'        => $request->perusahaan,  
+                    'alamat'            => $request->alamat,  
+                    'kota'              => $request->kota,  
+
+                    'nomor_kwitansi'    => $request->nomor_kwitansi,  
+                    'penerima'          => $request->penerima,  
+                    'nominal'           => $request->nominal,  
+                    'tanggal'           => $request->tanggal,  
+                    'keterangan'        => $request->keterangan,  
+                    'stamp'             => $image->hashName(),
+                ]); 
+
+            }else{
+                $model->update([
+                    'perusahaan'        => $request->perusahaan,  
+                    'alamat'            => $request->alamat,  
+                    'kota'              => $request->kota,  
+                    
+                    'nomor_kwitansi'    => $request->nomor_kwitansi,  
+                    'penerima'          => $request->penerima,  
+                    'nominal'           => $request->nominal,  
+                    'tanggal'           => $request->tanggal,  
+                    'keterangan'        => $request->keterangan,  
+                ]); 
+            }
                 
         // ----------------------------------------------------------- Send
             if($model)
