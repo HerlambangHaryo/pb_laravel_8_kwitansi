@@ -91,7 +91,7 @@
                             <img 
                                 src="{{ asset('/public/storage/stamp/').'/'.$model->stamp }}" 
                                 class="rounded mx-auto d-block" 
-                                width="100" >
+                                width="75" >
                             <br/>
                         @else
                             <br/>
