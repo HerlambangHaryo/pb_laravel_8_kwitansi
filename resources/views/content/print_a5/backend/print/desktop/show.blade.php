@@ -18,7 +18,11 @@
                         {{ $model->perusahaan }}
                     </div>
                     <span style="text-decoration: underline;">
-                        {{ $model->alamat }}, {{ $model->kota }}
+                        @if(!is_null($model->alamat ))
+                            {{ $model->alamat }}, 
+                        @endif
+                        
+                        {{ $model->kota }}
                     </span> 
                 </div> 
                 
