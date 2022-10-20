@@ -60,6 +60,12 @@
                                         Rp.{{ number_format($row->nominal,0,",",".") }},-
                                     </td> 
                                     <td class="">  
+                                        <img 
+                                        src="{{ asset('/public/storage/stamp/').'/'.$row->stamp }}" 
+                                        class="rounded mx-auto d-block" 
+                                        width="100" > 
+                                    </td> 
+                                    <td class="">  
                                         {{ $row->keterangan }}
                                     </td> 
                                     <td class="text-center"> 
