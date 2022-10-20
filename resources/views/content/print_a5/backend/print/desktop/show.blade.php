@@ -50,7 +50,7 @@
                             </td>
                             <td>:</td>
                             <td  style=" font-weight: bold;">
-                                ## {{ ucwords(terbilang($model->nominal) ) }} ##
+                                ## {{ ucwords(terbilang($model->nominal) ) }} Rupiah ##
                                 
                             </td>
                         </tr>
