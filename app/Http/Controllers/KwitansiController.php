@@ -107,19 +107,7 @@ class KwitansiController extends Controller
         // ----------------------------------------------------------- Initialize
             $content        = $this->content;
 
-        // ----------------------------------------------------------- Action 
-            $this->validate($request, [ 
-                'perusahaan'        => 'required', 
-                'alamat'            => 'required', 
-                'kota'              => 'required', 
-
-                'nomor_kwitansi'    => 'required',  
-                'penerima'          => 'required',  
-                'nominal'           => 'required',  
-                'tanggal'           => 'required',  
-                 
-                'keterangan'        => 'required',  
-            ]);
+        // ----------------------------------------------------------- Action  
   
             if($request->stamp != '')
             {
@@ -224,14 +212,7 @@ class KwitansiController extends Controller
         // ----------------------------------------------------------- Initialize
             $content        = $this->content;
 
-        // ----------------------------------------------------------- Action
-            $this->validate($request, [
-                'nomor_kwitansi'    => 'required',  
-                'penerima'          => 'required',  
-                'nominal'           => 'required',  
-                'tanggal'           => 'required',  
-                'keterangan'        => 'required', 
-            ]);
+        // ----------------------------------------------------------- Action 
  
             $model = Kwitansi::findOrFail($Kwitansi->id);
              
