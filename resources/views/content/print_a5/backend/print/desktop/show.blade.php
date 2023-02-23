@@ -8,7 +8,7 @@
 
     <!-- Each sheet element should have the class "sheet" -->
     <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
-    <section class="sheet padding-10mm">
+    <section class="sheet padding-10mm" style="padding-left:15mm;">
  
 
         
